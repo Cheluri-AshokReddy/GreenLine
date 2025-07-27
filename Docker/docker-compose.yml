@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: greenline-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: GreenLine
+      POSTGRES_USER: greenline
+      POSTGRES_PASSWORD: greenline
+    ports:
+      - "5432:5432"
+    volumes:
+      - greenline_pgdata:/var/lib/postgresql/data
+    networks:
+      - greenline-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: greenline-pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@greenline.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - greenline-network
+
+volumes:
+  greenline_pgdata:
+
+networks:
+  greenline-network:
+    driver: bridge
