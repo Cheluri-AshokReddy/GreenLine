@@ -17,16 +17,6 @@ public class DriverSubmission {
     @Column(name = "submission_id")
     private Integer submissionId;
 
-
-    @Column(name = "full_name", length = 100, nullable = false)
-    private String fullName;
-
-    @Column(name = "email", length = 100, nullable = false)
-    private String email;
-
-    @Column(name = "mobile_number", length = 15, nullable = false)
-    private String mobileNumber;
-
     @Column(name = "total_profile_amount", nullable = false)
     private BigDecimal totalProfileAmount;
 

@@ -1,6 +1,5 @@
 package com.example.GreenLine.Model;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,7 +29,7 @@ public class User {
     @Column(name = "full_name", length = 100, nullable = false)
     private String fullName;
 
-    @Column(length = 100, nullable = false,unique = true)
+    @Column(length = 100, nullable = false, unique = true)
     private String email;
 
     @Column(name = "mobile_number", length = 15, nullable = false, unique = true)
@@ -51,4 +50,16 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<DriverSubmission> driverSubmissions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<SalesSubmission> salesSubmissions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<StockUpdate> stockUpdates = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<StockDispatch> stockDispatches = new ArrayList<>();
 }

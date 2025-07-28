@@ -34,10 +34,6 @@ public class DriverSubmissionServiceImpl implements DriverSubmissionService {
 
         driverSubmission.setSubmissionId(null); // Ensure it's treated as a new record
 
-        // 2. Copy user details
-        driverSubmission.setFullName(user.getFullName());
-        driverSubmission.setEmail(user.getEmail());
-        driverSubmission.setMobileNumber(user.getMobileNumber());
 
         // ✅ Set the user object (this is the important part)
         driverSubmission.setUser(user);
@@ -46,7 +42,11 @@ public class DriverSubmissionServiceImpl implements DriverSubmissionService {
         driverSubmission.setCreatedAt(LocalDateTime.now());
 
         // 4. Save
-        return modelMapper.map(repository.save(driverSubmission),DriverSubmissionResponseDTO.class);
+        DriverSubmissionResponseDTO DriversubmissionresponseDTO = modelMapper.map(repository.save(driverSubmission),DriverSubmissionResponseDTO.class);
+        DriversubmissionresponseDTO.setEmail(user.getEmail());
+        DriversubmissionresponseDTO.setFullName(user.getFullName());
+        DriversubmissionresponseDTO.setMobileNumber(user.getMobileNumber());
+        return DriversubmissionresponseDTO;
     }
 
 
