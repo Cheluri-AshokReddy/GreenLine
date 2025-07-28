@@ -17,8 +17,6 @@ public class DriverSubmission {
     @Column(name = "submission_id")
     private Integer submissionId;
 
-    @Column(name = "user_id", nullable = false)
-    private Integer userId;
 
     @Column(name = "full_name", length = 100, nullable = false)
     private String fullName;
@@ -51,7 +49,7 @@ public class DriverSubmission {
     private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
 }
