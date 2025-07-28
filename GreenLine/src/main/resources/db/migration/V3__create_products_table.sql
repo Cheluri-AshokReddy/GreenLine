@@ -10,4 +10,3 @@ CREATE TABLE products (
                           CONSTRAINT fk_products_seller FOREIGN KEY (seller_id) REFERENCES sellers(seller_id)
 );
 
-  
