@@ -46,6 +46,17 @@ public class GlobalExceptionHandler {
                 .body("Something went wrong: " + ex.getMessage());
     }
 
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<String> handleProductNotFound(ProductNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(SellerNotFoundException.class)
+    public ResponseEntity<String> handleSellerNotFound(SellerNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+
+
 
 }
 

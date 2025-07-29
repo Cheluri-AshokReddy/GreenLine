@@ -13,11 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Seller {
+public class Sellers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long sellerId;
+    private Integer sellerId;
 
     private String sellerName;
     private String contactInfo;
@@ -26,9 +26,9 @@ public class Seller {
 
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<Product> products = new ArrayList<>();
+    private List<Products> products = new ArrayList<>();
 
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<StockUpdate> stockUpdates = new ArrayList<>();
+    private List<StockUpdates> stockUpdates = new ArrayList<>();
 }

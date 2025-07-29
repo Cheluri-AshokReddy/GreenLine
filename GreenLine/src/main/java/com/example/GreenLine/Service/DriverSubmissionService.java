@@ -2,7 +2,6 @@ package com.example.GreenLine.Service;
 
 import com.example.GreenLine.DTO.DriverSubmissionRequest;
 import com.example.GreenLine.DTO.DriverSubmissionResponseDTO;
-import com.example.GreenLine.Model.DriverSubmission;
 
 public interface DriverSubmissionService {
 

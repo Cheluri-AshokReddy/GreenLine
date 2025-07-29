@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DriverSubmission {
+public class DriverSubmissions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

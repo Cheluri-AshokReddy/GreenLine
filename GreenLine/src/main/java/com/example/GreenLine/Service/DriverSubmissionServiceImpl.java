@@ -3,7 +3,7 @@ package com.example.GreenLine.Service;
 import com.example.GreenLine.DTO.DriverSubmissionRequest;
 import com.example.GreenLine.DTO.DriverSubmissionResponseDTO;
 import com.example.GreenLine.Exceptions.UserNotFoundException;
-import com.example.GreenLine.Model.DriverSubmission;
+import com.example.GreenLine.Model.DriverSubmissions;
 import com.example.GreenLine.Model.User;
 import com.example.GreenLine.Repository.DriverSubmissionRepository;
 import com.example.GreenLine.Repository.UserRepository;
@@ -30,7 +30,7 @@ public class DriverSubmissionServiceImpl implements DriverSubmissionService {
         User user = userRepository.findById(submission.getUserId())
                 .orElseThrow(() -> new UserNotFoundException("User with Id '" + submission.getUserId() + "' not found."));
 
-        DriverSubmission driverSubmission = modelMapper.map(submission, DriverSubmission.class);
+        DriverSubmissions driverSubmission = modelMapper.map(submission, DriverSubmissions.class);
 
         driverSubmission.setSubmissionId(null); // Ensure it's treated as a new record
 

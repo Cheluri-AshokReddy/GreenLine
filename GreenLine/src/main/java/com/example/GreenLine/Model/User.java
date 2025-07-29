@@ -49,17 +49,17 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<DriverSubmission> driverSubmissions = new ArrayList<>();
+    private List<DriverSubmissions> driverSubmissions = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<SalesSubmission> salesSubmissions = new ArrayList<>();
+    private List<SalesSubmissions> salesSubmissions = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<StockUpdate> stockUpdates = new ArrayList<>();
+    private List<StockUpdates> stockUpdates = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<StockDispatch> stockDispatches = new ArrayList<>();
+    private List<StockDispatchs> stockDispatches = new ArrayList<>();
 }

@@ -79,8 +79,6 @@ public class UserServiceImpl implements UserService{
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new InvalidPasswordException("Incorrect password");
         }
-
         return modelMapper.map(user, UserLoginResponseDTO.class);
     }
-
 }

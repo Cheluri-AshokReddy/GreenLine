@@ -7,6 +7,7 @@ import com.example.GreenLine.DTO.UserResponseDTO;
 import com.example.GreenLine.Model.User;
 import com.example.GreenLine.Service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
+@Slf4j
 public class UserController {
 
     private final UserServiceImpl userService;
@@ -24,6 +26,7 @@ public class UserController {
     public ResponseEntity<UserResponseDTO> saveUser(@RequestBody User user) {
         UserResponseDTO savedUser = userService.saveUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+
     }
 
     // Find user by email
@@ -50,5 +53,4 @@ public class UserController {
         UserLoginResponseDTO dto = userService.login(request.getEmailOrFullName(), request.getPassword());
         return ResponseEntity.ok(dto);
     }
-
 }

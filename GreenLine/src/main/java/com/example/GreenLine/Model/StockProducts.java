@@ -8,22 +8,25 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SalesSubmissionItem {
+public class StockProducts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long itemId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "submission_id", nullable = false)
-    private SalesSubmission salesSubmission;
+    private Integer stockProductId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+    private Products product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "update_id")
+    private StockUpdates stockUpdate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dispatch_id")
+    private StockDispatchs stockDispatch;
 
     private Integer quantity;
     private Double mrp;
     private Double gst;
-    private Double totalPrice;
 }

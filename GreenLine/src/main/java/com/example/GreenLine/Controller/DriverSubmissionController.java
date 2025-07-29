@@ -3,7 +3,6 @@ package com.example.GreenLine.Controller;
 
 import com.example.GreenLine.DTO.DriverSubmissionRequest;
 import com.example.GreenLine.DTO.DriverSubmissionResponseDTO;
-import com.example.GreenLine.Model.DriverSubmission;
 import com.example.GreenLine.Service.DriverSubmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

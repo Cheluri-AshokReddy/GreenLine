@@ -13,26 +13,24 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class StockUpdate {
+public class SalesSubmissions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long updateId;
+    private Integer submissionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "seller_id", nullable = false)
-    private Seller seller;
+    private String customerName;
+    private String customerContact;
+    private String deliveryAddress;
+    private LocalDateTime expectedDeliveryDate;
+    private LocalDateTime createdAt;
+    private Double totalSubmissionPrice;
 
-    private LocalDateTime updateDate;
-
-    @Lob
-    private String notes;
-
-    @OneToMany(mappedBy = "stockUpdate", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "salesSubmission", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<StockProduct> stockProducts = new ArrayList<>();
+    private List<SalesSubmissionItems> items = new ArrayList<>();
 }
