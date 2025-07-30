@@ -6,5 +6,6 @@ CREATE TABLE sales_submissions (
                                    delivery_address TEXT,
                                    expected_delivery_date DATE,
                                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                   total_submission_price DOUBLE PRECISION,
                                    CONSTRAINT fk_sales_submissions_user FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

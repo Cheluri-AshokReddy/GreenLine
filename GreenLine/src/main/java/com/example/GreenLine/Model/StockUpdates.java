@@ -34,5 +34,5 @@ public class StockUpdates {
 
     @OneToMany(mappedBy = "stockUpdate", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<StockProducts> stockProducts = new ArrayList<>();
+    private List<StockUpdateProducts> stockProducts = new ArrayList<>();
 }

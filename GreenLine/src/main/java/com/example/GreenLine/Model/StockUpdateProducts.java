@@ -8,7 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class StockProducts {
+@Table(name = "stock_update_products")
+public class StockUpdateProducts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,12 +20,8 @@ public class StockProducts {
     private Products product;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "update_id")
+    @JoinColumn(name = "update_id", nullable = false)
     private StockUpdates stockUpdate;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dispatch_id")
-    private StockDispatchs stockDispatch;
 
     private Integer quantity;
     private Double mrp;

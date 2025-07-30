@@ -69,5 +69,4 @@ public class SalesSubmissionServiceImpl implements SalesSubmissionService {
         salesSubmissionItemRepository.saveAll(items);
     }
 
-
 }
