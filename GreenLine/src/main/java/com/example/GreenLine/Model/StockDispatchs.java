@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "stock_dispatches")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,7 +23,6 @@ public class StockDispatchs {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
     private LocalDateTime dispatchDate;
 
     @Lob
