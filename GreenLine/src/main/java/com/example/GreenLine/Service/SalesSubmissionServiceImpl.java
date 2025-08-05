@@ -24,7 +24,7 @@ public class SalesSubmissionServiceImpl implements SalesSubmissionService {
 
     @Override
     @Transactional
-    public void submitSales(SalesSubmissionRequestDTO request) {
+    public Double submitSales(SalesSubmissionRequestDTO request) {
         User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -67,6 +67,7 @@ public class SalesSubmissionServiceImpl implements SalesSubmissionService {
             item.setSalesSubmission(savedSubmission);
         }
         salesSubmissionItemRepository.saveAll(items);
+        return totalSubmissionPrice;
     }
 
 }
